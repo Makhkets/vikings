@@ -53,10 +53,6 @@
         transition: background-color 0.3s, transform 0.3s;
         text-align: center;
       }
-      label {
-        width: fit-content;
-        margin: 0 auto;
-      }
       button:hover,
       label:hover {
         background-color: #0056b3;
@@ -76,7 +72,7 @@
         text-align: center;
       }
       .submit-button {
-        width: fit-content;
+        width: 100%;
         margin: 0 auto;
       }
       @media (max-width: 600px) {
@@ -98,25 +94,9 @@
       <h2>Формирование регистраций животных</h2>
       <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <label for="id_photo">Выберите изображение</label>
-        <input
-          id="id_photo"
-          type="file"
-          name="photo"
-          onchange="updateFileName()"
-        />
-        <div class="file-name" id="file-name"></div>
-        <button type="submit" class="submit-button">Проверка</button>
-      </form>
+        {{ form }}
+        <button type="submit">Загрузить</button>
+    </form>
     </div>
-    <script>
-      function updateFileName() {
-        var input = document.getElementById("id_photo");
-        var fileName = document.getElementById("file-name");
-        if (input.files.length > 0) {
-          fileName.textContent = input.files[0].name;
-        }
-      }
-    </script>
   </body>
 </html>
