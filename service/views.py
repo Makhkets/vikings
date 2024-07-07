@@ -23,6 +23,11 @@ def index(request):
                         file.write(chunk)
                 photo_instance.model_field = 'photos/' + file_name
                 photo_instance.save()
+
+                ##############
+                # paste code #
+                ##############
+
             return render(request, 'success.html', {'form': form})
     else:
         form = MultiplePhotoForm()
